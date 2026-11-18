@@ -41,14 +41,12 @@ else:
 def calc_bmi(height,weight):
     bmi = weight / height ** 2
     result = None
-    if (bmi < 18.5): 
+    if bmi < 18.5: 
         result = "偏瘦"
-    
-    elif (bmi>=18.5 and bmi<24): 
+    elif bmi < 24: 
         result = "正常"
-    elif (bmi>=24 and bmi<28): 
+    elif bmi < 28: 
         result = "超重"
-        
     else: 
         result = "肥胖"
     return bmi, result
@@ -58,3 +56,9 @@ assert calc_bmi(1.65, 50.37)[1] == "正常"    # 18.50
 assert calc_bmi(1.65, 65.34)[1] == "超重"    # 24.00
 assert calc_bmi(1.65, 76.23)[1] == "肥胖"    # 28.00
 print("全部通过")
+
+if __name__ == "__main__":
+    height = float(input("请输入身高/m: "))
+    weight = float(input("请输入体重/kg: "))
+    bmi, level = calc_bmi(height, weight)
+    print(f"你的BMI是{bmi:.2f}，属于：{level}")
