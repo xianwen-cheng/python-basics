@@ -12,7 +12,7 @@ def test_bmi_level(height,weight,expected):
 
 
 def test_偏瘦():
-    assert calc_bmi(1.65, 50.36)[1] == "正常"
+    assert calc_bmi(1.65, 50.36)[1] == "偏瘦"
 
 def test_正常():
     assert calc_bmi(1.65, 50.37)[1] == "正常"
@@ -20,3 +20,7 @@ def test_正常():
 def test_身高为零():
     with pytest.raises(ZeroDivisionError):
         calc_bmi(0, 50)
+
+@pytest.mark.xfal(reason = "观察用")
+def test_失败():
+    assert calc_bmi(1.65, 50.36)[1] == "正常"
